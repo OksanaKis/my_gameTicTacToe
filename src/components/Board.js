@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import Square from './Square';
+import ComputerPlayer from '../Logic/ComputerPlayer'
 
 function Board() {
 
@@ -34,6 +35,8 @@ function Board() {
         else {
             alert("Can't do that")
         }
+        console.log(ComputerPlayer());
+    
     }
 
     function calculateWinner(square) {
@@ -80,6 +83,7 @@ function Board() {
                 {status}
             </div>
         </div>
+
     )
 }
 
