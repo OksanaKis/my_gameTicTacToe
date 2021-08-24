@@ -5,7 +5,11 @@ import ComputerPlayer from '../Logic/ComputerPlayer'
 function Board() {
 
     const [square, setSquare] = useState(Array(9).fill(null));
+
     const [stateX , setStateX] = useState(true);
+
+    const boardCopy = [...square];
+
 
     const winner = calculateWinner(square);
     let status;
@@ -16,28 +20,45 @@ function Board() {
         status = 'Player turn : ' + (stateX ? 'X' : 'O');
     }
 
+    if ( !winner && !boardCopy.includes(null)) {
+        status = 'Draw game! There is no winner';
+    }
+
     const renderSquare = (num) => {
         return (
             <Square value={square[num]} onClick={() =>
             handleClick(num)}/>
         )
     }
+
     
     const handleClick = (num) => {
-        console.log(num);
-        const squares = square.slice();
-        if (squares[num] === null) {
-           squares[num] = stateX ? 'X' : 'O';
-           console.log(squares[num]);
-           setSquare(squares);
-           setStateX(!stateX);
-        }
-        else {
-            alert("Can't do that")
-        }
-        console.log(ComputerPlayer());
+        // console.log(num);
+        // const squares = square.slice();
+        // console.log(squares[num]);
+        
+        // if (squares[num] === null) {
+        //     squares[num] = stateX ? 'X' : 'O';
+        //     setSquare(squares);
+        //     setStateX(!stateX); 
+        // }
+        // else {
+        //     alert("Can't do that")
+        // }
+
     
+        // console.log(boardCopy);
+        console.log(boardCopy[num]);
+        if (winner || boardCopy[num]) return;
+        boardCopy[num] = stateX ? 'X' : 'O';
+        setSquare(boardCopy);
+        setStateX(!stateX); 
+        console.log(boardCopy);
+        console.log(boardCopy[num]);
+        
     }
+    
+
 
     function calculateWinner(square) {
         const lines = [
@@ -59,7 +80,8 @@ function Board() {
             }
         }
 
-        return null;
+      return null;
+        
     }
 
     return (
