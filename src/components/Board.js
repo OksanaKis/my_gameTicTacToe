@@ -48,17 +48,41 @@ function Board() {
 
     
         // console.log(boardCopy);
-        console.log(boardCopy[num]);
+        // console.log(boardCopy[num]);
+        // if (winner || boardCopy[num]) return;
+        // boardCopy[num] = stateX ? 'X' : 'O';
+        // setSquare(boardCopy);
+        // setStateX(!stateX); 
+        // console.log(boardCopy);
+        // console.log(boardCopy[num]);
+
+
         if (winner || boardCopy[num]) return;
-        boardCopy[num] = stateX ? 'X' : 'O';
+        boardCopy[num] = 'X';
         setSquare(boardCopy);
-        setStateX(!stateX); 
+        // setTimeout(computerMove, 600);
+        // computerMove(); 
+        computerMove();
+    }
+
+    
+    function computerMove() {
         console.log(boardCopy);
-        console.log(boardCopy[num]);
-        
+        const random = Math.floor(Math.random() * 8);
+        if (boardCopy[random] === null){
+            boardCopy[random] = 'O';
+            // setSquare(boardCopy);
+            console.log("computerMove ПРАЦЮЄЄЄЄЄЄЄ11111111");
+        } 
+        else if (boardCopy.includes(null)) computerMove();
+        else return;
+        setSquare(boardCopy);
+        console.log(boardCopy);
+        console.log("computerMove ПРАЦЮЄЄЄЄЄЄЄ2222222222");
     }
     
-
+    
+    
 
     function calculateWinner(square) {
         const lines = [
