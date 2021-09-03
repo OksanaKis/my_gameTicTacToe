@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import Square from './Square';
-import ComputerPlayer from '../Logic/ComputerPlayer'
 
 function Board() {
 
@@ -10,6 +9,27 @@ function Board() {
 
     const boardCopy = [...square];
 
+    const lines = [
+        [0, 1, 2],  // lines[0]
+        [3, 4, 5],  // lines[1]
+        [6, 7, 8],
+        [0, 3, 6],
+        [1, 4, 7],
+        [2, 5, 8],
+        [0, 4, 8],
+        [2, 4, 6],
+    ];
+
+    // const doubleSquare = [
+    //     [0, 1],[0, 2],[1, 2],
+    //     [3, 4],[3, 5],[4, 5],
+    //     [6, 7],[6, 8],[7, 8],
+    //     [0, 3],[0, 6],[3, 6],
+    //     [1, 4],[1, 7],[4, 7],
+    //     [2, 5],[2, 8],[5, 8],
+    //     [0, 4],[0, 8],[4, 8],
+    //     [2, 4],[2, 6],[4, 6],
+    // ];
 
     const winner = calculateWinner(square);
     let status;
@@ -69,32 +89,38 @@ function Board() {
     function computerMove() {
         console.log(boardCopy);
         const random = Math.floor(Math.random() * 8);
-        if (boardCopy[random] === null){
+        if (boardCopy[4] === null) {
+            boardCopy[4] = 'O';
+        }
+        else if (boardCopy[random] === null){
             boardCopy[random] = 'O';
-            // setSquare(boardCopy);
-            console.log("computerMove ПРАЦЮЄЄЄЄЄЄЄ11111111");
-        } 
+        }  
         else if (boardCopy.includes(null)) computerMove();
         else return;
         setSquare(boardCopy);
         console.log(boardCopy);
-        console.log("computerMove ПРАЦЮЄЄЄЄЄЄЄ2222222222");
     }
-    
-    
-    
+
+    // function calculateSquare(square) {
+    //     for (let i = 0; i < doubleSquare.length; i++) {
+    //         const [a,b] = doubleSquare[i];
+    //         if (square[a] === square[b]) {
+                
+    //         }
+    //     }
+    // }
 
     function calculateWinner(square) {
-        const lines = [
-            [0, 1, 2],  // lines[0]
-            [3, 4, 5],  // lines[1]
-            [6, 7, 8],
-            [0, 3, 6],
-            [1, 4, 7],
-            [2, 5, 8],
-            [0, 4, 8],
-            [2, 4, 6],
-        ];
+        // const lines = [
+        //     [0, 1, 2],  // lines[0]
+        //     [3, 4, 5],  // lines[1]
+        //     [6, 7, 8],
+        //     [0, 3, 6],
+        //     [1, 4, 7],
+        //     [2, 5, 8],
+        //     [0, 4, 8],
+        //     [2, 4, 6],
+        // ];
 
         for (let i = 0; i < lines.length; i++) {
             const [a,b,c] = lines[i]; // a way of distructuring
