@@ -5,8 +5,6 @@ function Board() {
 
     const [square, setSquare] = useState(Array(9).fill(null));
 
-    const [stateX , setStateX] = useState(true);
-
     const boardCopy = [...square];
 
     const lines = [
@@ -20,24 +18,13 @@ function Board() {
         [2, 4, 6],
     ];
 
-    // const doubleSquare = [
-    //     [0, 1],[0, 2],[1, 2],
-    //     [3, 4],[3, 5],[4, 5],
-    //     [6, 7],[6, 8],[7, 8],
-    //     [0, 3],[0, 6],[3, 6],
-    //     [1, 4],[1, 7],[4, 7],
-    //     [2, 5],[2, 8],[5, 8],
-    //     [0, 4],[0, 8],[4, 8],
-    //     [2, 4],[2, 6],[4, 6],
-    // ];
-
     const winner = calculateWinner(square);
     let status;
     if(winner) {
         status = 'Winner ' + winner;
     }
     else {
-        status = 'Player turn : ' + (stateX ? 'X' : 'O');
+        status = 'Player turn : X';
     }
 
     if ( !winner && !boardCopy.includes(null)) {
@@ -88,9 +75,14 @@ function Board() {
     
     function computerMove() {
         console.log(boardCopy);
+        const numSquare = calculateSquare(square);
+        console.log(numSquare);
         const random = Math.floor(Math.random() * 8);
         if (boardCopy[4] === null) {
             boardCopy[4] = 'O';
+        }
+        else if (numSquare) {
+            boardCopy[numSquare] = 'O';
         }
         else if (boardCopy[random] === null){
             boardCopy[random] = 'O';
@@ -101,14 +93,25 @@ function Board() {
         console.log(boardCopy);
     }
 
-    // function calculateSquare(square) {
-    //     for (let i = 0; i < doubleSquare.length; i++) {
-    //         const [a,b] = doubleSquare[i];
-    //         if (square[a] === square[b]) {
-                
-    //         }
-    //     }
-    // }
+    function calculateSquare(square) {
+        for (let i = 0; i < lines.length; i++) {
+            const [a, b, c] = lines[i];
+            if ((square[a] === square[b]) && square[c] === null) {
+                console.log("c");
+                return c;
+            }
+            if (square[c] != null && (square[a] === square[c]) && square[b] === null) {
+                console.log("b");
+                return b;
+            }
+            if (square[b] != null && (square[b] === square[c]) && square[a] === null) {
+                console.log ("a");
+                return a;
+            }
+        }
+        console.log("calculateSquare");
+        return null;
+    }
 
     function calculateWinner(square) {
         // const lines = [
