@@ -55,24 +55,27 @@ function Board() {
     }
 
     
-    function computerMove() {
+    function computerMove(boardCopy) {
         console.log(boardCopy);
-        const numSquare = calculateSquare(square);
+        const numSquare = calculateSquare(boardCopy);
         console.log(numSquare);
         const random = Math.floor(Math.random() * 8);
         if (boardCopy[4] === null) {
             boardCopy[4] = 'O';
+            return boardCopy;
         }
-        else if (numSquare) {
+        if (boardCopy[numSquare] === null) {
             boardCopy[numSquare] = 'O';
+            return boardCopy;
         }
-        else if (boardCopy[random] === null){
+        if (boardCopy[random] === null){
             boardCopy[random] = 'O';
+            return boardCopy;
         }  
-        else if (boardCopy.includes(null)) computerMove();
-        else return;
-        setSquare(boardCopy);
-        console.log(boardCopy);
+        if (boardCopy.includes(null)) {
+            computerMove(boardCopy);
+        }
+        // else return boardCopy;
     }
 
     function calculateSquare(square) {
