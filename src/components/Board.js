@@ -40,36 +40,18 @@ function Board() {
 
     
     const handleClick = (num) => {
-        // console.log(num);
-        // const squares = square.slice();
-        // console.log(squares[num]);
-        
-        // if (squares[num] === null) {
-        //     squares[num] = stateX ? 'X' : 'O';
-        //     setSquare(squares);
-        //     setStateX(!stateX); 
-        // }
-        // else {
-        //     alert("Can't do that")
-        // }
-
-    
-        // console.log(boardCopy);
-        // console.log(boardCopy[num]);
-        // if (winner || boardCopy[num]) return;
-        // boardCopy[num] = stateX ? 'X' : 'O';
-        // setSquare(boardCopy);
-        // setStateX(!stateX); 
-        // console.log(boardCopy);
-        // console.log(boardCopy[num]);
-
-
         if (winner || boardCopy[num]) return;
         boardCopy[num] = 'X';
-        setSquare(boardCopy);
-        // setTimeout(computerMove, 600);
-        // computerMove(); 
-        computerMove();
+        console.log(boardCopy);
+        let check = calculateWinner(boardCopy);
+        if(check === 'X' || !boardCopy.includes(null)) {  
+            setSquare(boardCopy);
+            return;
+        }
+        let finalBoard = computerMove(boardCopy); 
+        console.log(boardCopy); 
+        console.log(finalBoard);
+        setSquare(finalBoard); 
     }
 
     
