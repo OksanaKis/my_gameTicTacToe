@@ -78,18 +78,18 @@ function Board() {
         // else return boardCopy;
     }
 
-    function calculateSquare(square) {
+    function calculateSquare(handle) {
         for (let i = 0; i < lines.length; i++) {
             const [a, b, c] = lines[i];
-            if ((square[a] === square[b]) && square[c] === null) {
+            if ((handle[a] === handle[b]) && handle[c] === null) {
                 console.log("c");
                 return c;
             }
-            if (square[c] != null && (square[a] === square[c]) && square[b] === null) {
+            if (handle[c] != null && (handle[a] === handle[c]) && handle[b] === null) {
                 console.log("b");
                 return b;
             }
-            if (square[b] != null && (square[b] === square[c]) && square[a] === null) {
+            if (handle[b] != null && (handle[b] === handle[c]) && handle[a] === null) {
                 console.log ("a");
                 return a;
             }
