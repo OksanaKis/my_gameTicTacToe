@@ -4,10 +4,12 @@ import Board from './components/Board';
 
 function App() {
   return (
-    <div className="App">
-      <h1 className="header">TIC TAC TOE</h1>
-      <Board />
-    </div>
+    <main>
+      <div className='header'>Tic tac toe</div>
+      <Board>
+        
+      </Board>
+    </main>
   );
 }
 
