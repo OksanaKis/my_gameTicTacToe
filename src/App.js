@@ -76,7 +76,7 @@ if (isComputerTurn && emptyIndexes.length > 0) {
   putComputer(randomIndex);
 }
   }, [squares]);
-  
+
 
   const handleClick = (index) => {
     if ((squares[index] !== null) || winner ) return;
@@ -86,6 +86,11 @@ if (isComputerTurn && emptyIndexes.length > 0) {
        newSquares[index] = 'x';
        setSquares([...newSquares]);
     }
+  }
+
+  const resetClick = () => {
+    setWinner(null);
+    setSquares(defaultSquares);
   }
 
 
@@ -101,6 +106,25 @@ if (isComputerTurn && emptyIndexes.length > 0) {
             onClick={() => handleClick(index)} />
         )}
       </Board>
+      {!!winner && winner === 'x' && (
+        <div className="result green">
+          You WON!
+        </div>
+      )}
+      {!!winner && winner === 'o' && (
+        <div className="result red">
+          You LOST!
+        </div>
+      )}
+      {!!winner && winner === 'draw' && (
+        <div className="result yellow">
+        DRAW game! 
+      </div>
+      )} 
+      <div className="button_div">
+      <button className="button_reset" 
+      onClick={resetClick}>Reset</button>
+      </div>
     </main>
   );
 }
