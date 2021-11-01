@@ -1,12 +1,7 @@
-import React from 'react';
-
 function Square(props) {
-    
     return (
-        <div>
-            <button className="btn" onClick={() => props.onClick()}>{props.value}</button>
-        </div>
-    )
-}
-
-export default Square;
+      <div className={'square'} {...props}>{props.x ? 'x' : (props.o ? 'o' : '')}</div>
+    );
+  }
+  
+  export default Square;
