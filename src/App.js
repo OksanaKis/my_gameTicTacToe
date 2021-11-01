@@ -18,7 +18,65 @@ function App() {
 
   useEffect (() => {
     const isComputerTurn = squares.filter(elemSquares => elemSquares !== null).length % 2 === 1;
+    const checkLines = (a,b,c) => {
+      return lines.filter(squaresIndexes => {
+            const checkSquares = squaresIndexes.map(index => squares[index]);
+            return JSON.stringify([a,b,c].sort()) === JSON.stringify(checkSquares.sort()); 
+});
+};
+
+const emptyIndexes = squares
+  .map((elemSquares,index) => elemSquares === null ? index : null)
+  .filter(elem => elem !== null);
+const playerWon = checkLines('x', 'x', 'x').length > 0;
+const computerWon = checkLines('o', 'o', 'o').length > 0;
+
+if (computerWon) {
+  setWinner('o');
+  return;
+}
+if (playerWon) {
+  setWinner('x');
+  return;
+}
+if (emptyIndexes.length === 0) {
+  setWinner('draw');
+  return;
+}
+
+const putComputer = index => {
+  let newSquares = [...squares];
+  newSquares[index] = 'o';
+  setSquares([...newSquares]);
+};
+
+
+if (isComputerTurn && emptyIndexes.length > 0) {
+
+  if (squares[4] === null) {
+    putComputer(4);
+    return;
+  }
+
+  const winingLines = checkLines('o', 'o', null);
+  if (winingLines.length > 0) {
+    const winIndex = winingLines[0].filter(index => squares[index] === null)[0];
+    putComputer(winIndex);
+    return;
+  }
+
+  const linesToBlock = checkLines('x', 'x', null);
+  if (linesToBlock.length > 0) {
+    const blockIndex = linesToBlock[0].filter(index => squares[index] === null)[0];
+    putComputer(blockIndex);
+    return;
+  }
+
+  const randomIndex = emptyIndexes[ Math.floor(Math.random()*emptyIndexes.length) ];
+  putComputer(randomIndex);
+}
   }, [squares]);
+  
 
   const handleClick = (index) => {
     if ((squares[index] !== null) || winner ) return;
