@@ -131,6 +131,8 @@ if (isComputerTurn && emptyIndexes.length > 0) {
       <div className="button_div">
       <button className="button_easy" onClick={changeLevel}>Easy level</button>
       <button className="button_normal" onClick={changeLevel}>Normal level</button>
+      <button className="button hard" 
+      onClick={changeLevel}>Hard</button>
       <button className="button_reset" 
       onClick={resetClick}>Reset</button>
       </div>
