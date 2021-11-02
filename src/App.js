@@ -73,6 +73,12 @@ if (isComputerTurn && emptyIndexes.length > 0) {
     return;
   }
 
+  const linesToContinue = checkLines('o', null, null);
+      if (level === 'normal' && linesToContinue.length > 0) {
+        putComputer(linesToContinue[0].filter(index => squares[index] === null)[0]);
+        return;
+      }
+
   const randomIndex = emptyIndexes[ Math.floor(Math.random()*emptyIndexes.length) ];
   putComputer(randomIndex);
 }
