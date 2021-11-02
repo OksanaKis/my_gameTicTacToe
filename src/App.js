@@ -15,6 +15,7 @@ const lines = [
 function App() {
   const [squares, setSquares] = useState(defaultSquares());
   const [winner,setWinner] = useState(null);
+  const [level, setLevel] = useState('easy');
 
   useEffect (() => {
     const isComputerTurn = squares.filter(elemSquares => elemSquares !== null).length % 2 === 1;
