@@ -54,7 +54,7 @@ const putComputer = index => {
 
 if (isComputerTurn && emptyIndexes.length > 0) {
 
-  if (squares[4] === null) {
+  if (level === 'normal' && squares[4] === null) {
     putComputer(4);
     return;
   }
