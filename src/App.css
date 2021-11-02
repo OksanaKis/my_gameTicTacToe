@@ -55,11 +55,24 @@ body{
     text-align: center;
   }
   
-  .button_reset{
-    width: 50%;
+  .button {
+    background-color: grey;
+    padding: 10px;
+    margin: 15px 5px;
+    font-size: 25px;
+    border-radius: 10px;
+  }
+  
+  .reset {
+    width: 40%;
+    background-color: green;
+  }
+  
+  .active {
+    width: 40%;
     background-color: green;
     padding: 10px;
-    margin-top: 15px;
-    font-size: 28px;
+    margin: 15px 5px;
+    font-size: 25px;
     border-radius: 10px;
   }
