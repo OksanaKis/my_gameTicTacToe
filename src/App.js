@@ -94,6 +94,12 @@ if (isComputerTurn && emptyIndexes.length > 0) {
     setSquares(defaultSquares);
   }
 
+  const changeLevel = () => {
+    console.log('changeLevel')
+    if (level === 'easy') setLevel('normal');
+    if (level === 'normal') setLevel('easy');
+  }
+
 
   return (
     <main>
@@ -125,8 +131,8 @@ if (isComputerTurn && emptyIndexes.length > 0) {
       <div className="button_div">
       <button className="button_reset" 
       onClick={resetClick}>Reset</button>
-      <button className="button_easy">Easy level</button>
-      <button className="button_normal">Normal level</button>
+      <button className="button_easy" onClick={changeLevel}>Easy level</button>
+      <button className="button_normal" onClick={changeLevel}>Normal level</button>
       </div>
     </main>
   );
