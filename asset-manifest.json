@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/my_gameTicTacToe/static/css/main.51862e4f.chunk.css",
+    "main.js": "/my_gameTicTacToe/static/js/main.e800da17.chunk.js",
+    "main.js.map": "/my_gameTicTacToe/static/js/main.e800da17.chunk.js.map",
+    "runtime-main.js": "/my_gameTicTacToe/static/js/runtime-main.128186cf.js",
+    "runtime-main.js.map": "/my_gameTicTacToe/static/js/runtime-main.128186cf.js.map",
+    "static/js/2.9f76c2fa.chunk.js": "/my_gameTicTacToe/static/js/2.9f76c2fa.chunk.js",
+    "static/js/2.9f76c2fa.chunk.js.map": "/my_gameTicTacToe/static/js/2.9f76c2fa.chunk.js.map",
+    "index.html": "/my_gameTicTacToe/index.html",
+    "static/css/main.51862e4f.chunk.css.map": "/my_gameTicTacToe/static/css/main.51862e4f.chunk.css.map",
+    "static/js/2.9f76c2fa.chunk.js.LICENSE.txt": "/my_gameTicTacToe/static/js/2.9f76c2fa.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.128186cf.js",
+    "static/js/2.9f76c2fa.chunk.js",
+    "static/css/main.51862e4f.chunk.css",
+    "static/js/main.e800da17.chunk.js"
+  ]
+}
