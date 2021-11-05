@@ -4,7 +4,7 @@ Welcome to React Project __Game__ _"Tic tac toe"_ using Hooks,created for learni
 
 ___Open [Tic Tac Toe](https://oksanakis.github.io/my_gameTicTacToe/) to view it in the browser.___
  
-![game image](../my_game/src/image/TicTacToe.png)
+![game image](https://github.com/OksanaKis/my_gameTicTacToe/blob/new_tic_tac_toe/src/image/TicTacToe.png)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
