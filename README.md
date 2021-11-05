@@ -1,4 +1,4 @@
-# Project title
+# Tic tac toe
 
 Welcome to React Project __Game__ _"Tic tac toe"_ using Hooks,created for learning purpose. It's a game with a computer.The game consists of two levels: easy and normal. Player 'X' goes first, the second is a computer player turn 'O'. If it is your turn, just click in the position you want to play in the board. After that the computer will perform its move. Once the game has a winner or there is a draw, you will see a dialog informing about the result. From here you can: click the reset button.
 
